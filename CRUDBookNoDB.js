@@ -27,10 +27,10 @@ app.get("/books", (req, res) => {
 });
 
 app.get("/books/:id", (req, res) => {
-    const book = books.find(b => b.id === parseInt(req.params.id))
-    if (!book) res.status(404).send('Book not found')
-    res.json(book)
-  });
+  const book = books.find((b) => b.id === parseInt(req.params.id));
+  if (!book) res.status(404).send("Book not found");
+  res.json(book);
+});
 
 app.post("/books", (req, res) => {
   const book = {
@@ -42,23 +42,21 @@ app.post("/books", (req, res) => {
   res.send(book);
 });
 
-
 app.put("/books/:id", (req, res) => {
-    const book = books.find(b => b.id === parseInt(req.params.id))
-    if (!book) res.status(404).send('Book not found')
-    book.title = req.body.title
-    book.author = req.body.author
-    res.send(book)
-  });
+  const book = books.find((b) => b.id === parseInt(req.params.id));
+  if (!book) res.status(404).send("Book not found");
+  book.title = req.body.title;
+  book.author = req.body.author;
+  res.send(book);
+});
 
-  
 app.delete("/books/:id", (req, res) => {
-    const book = books.find(b => b.id === parseInt(req.params.id))
-    if (!book) res.status(404).send('Book not found')
-    const index = books.indexOf(book)
-    books.splice(index,1)
-    res.send(book)
+  const book = books.find((b) => b.id === parseInt(req.params.id));
+  if (!book) res.status(404).send("Book not found");
+  const index = books.indexOf(book);
+  books.splice(index, 1);
+  res.send(book);
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port,() => console.log(`Listening on port ${port}...`))
+app.listen(port, () => console.log(`Listening on port ${port}...`));
