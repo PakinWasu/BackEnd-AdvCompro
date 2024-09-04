@@ -27,7 +27,7 @@ const Book = sequelize.define("book", {
     allowNull: false,
   },
 });
-
+sequelize.sync();
 app.get("/books", (req, res) => {
   Book.findAll()
     .then((books) => {
