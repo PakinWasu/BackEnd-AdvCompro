@@ -7,8 +7,8 @@ const app = express();
 
 app.use(express.json());
 
-const dbUrl = "";
-const sequelize = new Sequelize(dbUrl);
+const dbUrl = ''
+const sequelize = new Sequelize(dbUrl)
 const Book = sequelize.define("book", {
   id: {
     type: Sequelize.INTEGER,
